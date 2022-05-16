@@ -19,7 +19,7 @@ const (
 
 var oauthRestClient = rest.RequestBuilder{
 	BaseURL: "168.138.215.26:9001",
-	Timeout: 200 * time.Millisecond,
+	Timeout: 10 * time.Second,
 }
 
 type accessToken struct {
