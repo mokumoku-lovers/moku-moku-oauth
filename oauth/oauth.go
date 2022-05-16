@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"moku-moku-oauth-go/oauth/errors"
+	"github.com/mokumoku-lovers/moku-moku-oauth-go/oauth/errors"
 
 	"github.com/mercadolibre/golang-restclient/rest"
 )
