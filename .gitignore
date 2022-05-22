@@ -13,3 +13,12 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# Jetbrains Goland
+/.idea/
+
+# Environment variables
+.env
+
+# VS code
+launch.json
