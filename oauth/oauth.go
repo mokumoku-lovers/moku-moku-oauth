@@ -47,13 +47,14 @@ func AuthenticateRequest(request *http.Request) *errors.RestErr {
 func getAccessToken(accessTokenId string) (*accessToken, *errors.RestErr) {
 	response := oauthRestClient.Get(fmt.Sprintf("/oauth/access_token/%s", accessTokenId))
 
+	if response == nil || response.Response == nil {
+		return nil, errors.InternalServerError("invalid restclient response when attempting to get access token")
+	}
+
 	if response.StatusCode == http.StatusNotFound {
 		return nil, errors.BadRequest("Invalid token")
 	}
 
-	if response == nil || response.Response == nil {
-		return nil, errors.InternalServerError("invalid restclient response when attempting to get access token")
-	}
 	if response.StatusCode > 299 {
 		var restErr errors.RestErr
 		if err := json.Unmarshal(response.Bytes(), &restErr); err != nil {
