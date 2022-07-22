@@ -18,7 +18,7 @@ const (
 )
 
 var oauthRestClient = rest.RequestBuilder{
-	BaseURL: "168.138.215.26:9001",
+	BaseURL: "http://168.138.215.26:9001",
 	Timeout: 10 * time.Second,
 }
 
